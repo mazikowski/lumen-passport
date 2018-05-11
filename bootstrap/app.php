@@ -67,6 +67,7 @@ $app->singleton(
 // Enable auth middleware (shipped with Lumen)
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'client' => Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
 ]);
 
 /*
