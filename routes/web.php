@@ -14,3 +14,14 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['middleware' => 'auth:api'], function($router)
+{
+    $router->get('/oauth/test', function() {
+        return response()->json([
+            'success' => 'true',
+            'passport' => 'working',
+            'test' => 'complete'
+        ]);
+    });
+});
